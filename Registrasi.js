@@ -39,7 +39,7 @@ class Registrasi extends Component {
                     <TextInput placeholder="Address" style={styles.input} onChangeText={(value)=>{this.props.UserAction("address",value)}}></TextInput>
                 </View>
                 <View style={{flexDirection:'row'}}>
-                    <Button title='Cancel' onPress={()=>{this.props.navigation.navigate('Home')}}></Button>
+                    <Button title='Cancel' onPress={()=>{this.props.navigation.replace('Home')}}></Button>
                     <Button title='Submit' onPress={()=>{this.handleInputData()}}></Button>
                 </View>
             </SafeAreaView>

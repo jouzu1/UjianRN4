@@ -18,7 +18,7 @@ export class Home extends Component {
                         :
                         <View>
                             <Image source={require('./Screenshot (91).png')} style={styles.image}></Image>
-                            <Button title='Login' style={styles.button}>Login</Button>
+                            <Button title='Login' style={styles.button} onPress={()=>{this.props.navigation.replace('Login')}}>Login</Button>
                             <Button title='Register' style={styles.button} onPress={()=>{this.props.navigation.replace('Registrasi')}}></Button>
                         </View>
                     )

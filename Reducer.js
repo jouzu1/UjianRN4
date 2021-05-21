@@ -1,22 +1,22 @@
 import { combineReducers } from "redux"
 
 
-const userData = {
+const userData = [{
     id:0,
     name:"",
     email:"",
     phone:"",
     address:"",
     isLogin:false
-}
-const laporanState = {
+}]
+const laporanState = [{
     id:0,
     name:"",
     kejadian:0,
     alamat:"",
     keterangan:"",
     gambara:""
-}
+}]
 
 
 function UserReducer(state = userData,action){
