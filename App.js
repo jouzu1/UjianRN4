@@ -6,18 +6,18 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Provider } from 'react-redux';
 import store from './Store'
 import Home from './Home';
+import Registrasi from './Registrasi';
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <Stack.Navigator screenOptions={{
-          headerShown: false
-        }}>
-          <Stack.Screen name="Home" component={Home} />
-          {/* <Stack.Screen name="registrasi" component={Register}/>
-            <Stack.Screen name="login" component={Login}/> */}
+        <Stack.Navigator >
+          <Stack.Screen name="Home" component={Home} options={{ headerShown:false }}/>
+
+          <Stack.Screen name="Registrasi" component={Registrasi}/>
+          {/* <Stack.Screen name="login" component={Login}/> */}
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
