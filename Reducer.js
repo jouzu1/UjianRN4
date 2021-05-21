@@ -1,5 +1,11 @@
 import { combineReducers } from "redux"
+import {GET_DATA} from './Action'
 
+
+const initialState = {
+    user: [],
+    // favorites: [],
+};
 
 const userData = [{
     id:0,
@@ -39,11 +45,20 @@ function LaporanReducer (state = laporanState,action){
     return state;
 }
 
+function getDataReducer(state = initialState, action) {
+    switch (action.type) {
+      case GET_DATA:
+        return {...state, DATA: action.payload};
+      default:
+        return state;
+    }
+  }
 
 
 const reducer = combineReducers({
     LaporanReducer,
-    UserReducer
+    UserReducer,
+    getDataReducer
 })
 
 export default reducer

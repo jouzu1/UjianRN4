@@ -8,6 +8,7 @@ import store from './Store'
 import Home from './Home';
 import Registrasi from './Registrasi';
 import Login from './Login'
+import MainMenu from './MainMenu';
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -16,9 +17,9 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator >
           <Stack.Screen name="Home" component={Home} options={{ headerShown:false }}/>
-
           <Stack.Screen name="Registrasi" component={Registrasi}/>
           <Stack.Screen name="Login" component={Login}/>
+          <Stack.Screen name="MainMenu" component={MainMenu}/>
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

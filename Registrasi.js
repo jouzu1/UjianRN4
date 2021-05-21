@@ -6,13 +6,24 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import axios from 'axios';
 
-class Registrasi extends Component {
+export class Registrasi extends Component {
     // static propTypes = {
     //     prop: PropTypes
     // }
 
+    constructor(props){
+        super(props);
+        this.state = {
+            name:'',
+            email:'',
+            phone:'',
+            address:'',
+            isLogin:false
+        }
+    }
+
     handleInputData(){
-        axios.post("http://7770cc0911b9.ngrok.io/user/add",this.props.dataRegis)
+        axios.post("http://7770cc0911b9.ngrok.io/user/add",this.state)
         .then((response)=>{
             alert(JSON.stringify(response.data));
             this.props.navigation.navigate("Home")
@@ -27,16 +38,16 @@ class Registrasi extends Component {
             <SafeAreaView style={styles.container}>
                 <Text style={styles.text}> Registrasi </Text>
                 <View style={{flexDirection:'row'}}>
-                    <TextInput placeholder="Name" style={styles.input} onChangeText={(value)=>{this.props.UserAction("name",value)}}></TextInput>
+                    <TextInput placeholder="Name" style={styles.input} onChangeText={(value)=>{this.setState({name:value})}}></TextInput>
                 </View>
                 <View style={{flexDirection:'row'}}>
-                    <TextInput placeholder="Email" style={styles.input} onChangeText={(value)=>{this.props.UserAction("email",value)}}></TextInput>
+                    <TextInput placeholder="Email" style={styles.input} onChangeText={(value)=>{this.setState({email:value})}}></TextInput>
                 </View>
                 <View style={{flexDirection:'row'}}>
-                    <TextInput placeholder="Phone" style={styles.input} onChangeText={(value)=>{this.props.UserAction("phone",value)}}></TextInput>
+                    <TextInput placeholder="Phone" style={styles.input} onChangeText={(value)=>{this.setState({phone:value})}}></TextInput>
                 </View>
                 <View style={{flexDirection:'row'}}>
-                    <TextInput placeholder="Address" style={styles.input} onChangeText={(value)=>{this.props.UserAction("address",value)}}></TextInput>
+                    <TextInput placeholder="Address" style={styles.input} onChangeText={(value)=>{this.setState({address:value})}}></TextInput>
                 </View>
                 <View style={{flexDirection:'row'}}>
                     <Button title='Cancel' onPress={()=>{this.props.navigation.replace('Home')}}></Button>
@@ -81,12 +92,15 @@ const styles = StyleSheet.create({
     }
 });
 
-const mapStateToProps = (state) => ({
-    dataRegis : state.UserReducer
-})
+// const mapStateToProps = (state) => ({
+//     dataRegis : state.UserReducer
+// })
 
-const mapDispatchToProps = {
-    UserAction
-}
+// const mapDispatchToProps = {
+//     UserAction
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Registrasi)
+// export default connect(mapStateToProps, mapDispatchToProps)(Registrasi)
+
+export default Registrasi;
+

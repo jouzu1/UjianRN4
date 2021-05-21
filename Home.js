@@ -3,26 +3,19 @@ import { Text, View, SafeAreaView, StyleSheet, Image, Button } from 'react-nativ
 import { connect } from 'react-redux'
 
 export class Home extends Component {
+    
     componentDidMount() {
         console.log('ini props', this.props)
     }
+
     render() {
         return (
             <SafeAreaView style={styles.container}>
-                {
-                    (this.props.data.isLogin ?  <View>
-                                                    <Image source={{uri:'https://www.javatpoint.com/tutorial/react-native/images/react-native-tutorial.png'}} style={styles.image}></Image>
-                                                    <Button title='Logout' style={styles.button}>Login</Button>
-                                                    {/* <Button title='Register' style={styles.button}>Login</Button> */}
-                                                </View>
-                        :
-                        <View>
-                            <Image source={require('./Screenshot (91).png')} style={styles.image}></Image>
-                            <Button title='Login' style={styles.button} onPress={()=>{this.props.navigation.replace('Login')}}>Login</Button>
-                            <Button title='Register' style={styles.button} onPress={()=>{this.props.navigation.replace('Registrasi')}}></Button>
-                        </View>
-                    )
-                }
+                <View>
+                    <Image source={require('./Screenshot (91).png')} style={styles.image}></Image>
+                    <Button title='Login' style={styles.button} onPress={() => { this.props.navigation.replace('Login') }}>Login</Button>
+                    <Button title='Register' style={styles.button} onPress={() => { this.props.navigation.replace('Registrasi') }}></Button>
+                </View>
                 {/* <Image source={require('./Screenshot (91).png')} style={styles.image}></Image>
                 <Button title='Login' style={styles.button}>Login</Button>
                 <Button title='Register' style={styles.button}>Login</Button> */}
