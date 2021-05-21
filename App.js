@@ -4,19 +4,23 @@ import { StyleSheet, Text, View } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { Provider } from 'react-redux';
+import store from './Store'
+import Home from './Home';
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <Provider store={store}>
-        <NavigationContainer>
-          <Stack.Navigator>
-            <Stack.Screen name="home" component={Home}/>
-            <Stack.Screen name="registrasi" component={Register}/>
-            <Stack.Screen name="login" component={Login}/>
-          </Stack.Navigator>
-        </NavigationContainer>
-      </Provider>
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{
+          headerShown: false
+        }}>
+          <Stack.Screen name="Home" component={Home} />
+          {/* <Stack.Screen name="registrasi" component={Register}/>
+            <Stack.Screen name="login" component={Login}/> */}
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
 

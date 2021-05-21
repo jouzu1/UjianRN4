@@ -19,6 +19,15 @@ const laporanState = {
 }
 
 
+function UserReducer(state = userData,action){
+    if(action.type==="SET_USER"){
+        return{
+            ...state,
+            [action.inputType]:action.inputValue
+        }
+    }
+    return state;
+}
 
 function LaporanReducer (state = laporanState,action){
     if(action.type === "SET_LAPORAN"){
@@ -30,15 +39,7 @@ function LaporanReducer (state = laporanState,action){
     return state;
 }
 
-function UserReducer(state = userData,action){
-    if(action.type==="SET_USER"){
-        return{
-            ...state,
-            [action.inputType]:action.inputValue
-        }
-    }
-    return state;
-}
+
 
 const reducer = combineReducers({
     LaporanReducer,
