@@ -10,6 +10,7 @@ import Registrasi from './Registrasi';
 import Login from './Login'
 import MainMenu from './MainMenu';
 import Laporan from './Laporan';
+import History from './History';
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -17,11 +18,12 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator >
-          <Stack.Screen name="Home" component={Home} options={{ headerShown:false }}/>
-          <Stack.Screen name="Registrasi" component={Registrasi}/>
-          <Stack.Screen name="Login" component={Login}/>
+          {/* <Stack.Screen name="Home" component={Home} options={{ headerShown:false }}/> */}
+          {/* <Stack.Screen name="Registrasi" component={Registrasi}/> */}
+          {/* <Stack.Screen name="Login" component={Login}/> */}
           <Stack.Screen name="MainMenu" component={MainMenu} options={{ headerShown:false }}/>
-          <Stack.Screen name="Laporan" component={Laporan} />
+          <Stack.Screen name="Laporan" component={Laporan} options={{ headerShown:false }}/>
+          <Stack.Screen name="History" component={History} options={{ headerShown:false }}/>
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

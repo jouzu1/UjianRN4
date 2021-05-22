@@ -131,6 +131,7 @@ class Login extends Component {
         // console.log('data state',this.state.data)
     }
 
+
     componentDidUpdate() {
         this.handleGetData();
         // console.log('ini data login' , this.props.dataLogin)
@@ -138,22 +139,10 @@ class Login extends Component {
     }
 
     handleGetData(){
-        axios.get(`http://0b38a69f548d.ngrok.io/user/searchby/${this.state.email}/${this.state.phone}`)
+        axios.get(`http://b6cf50737591.ngrok.io/user/searchby/${this.state.email}/${this.state.phone}`)
         .then((response)=>{
             console.log('ini getData' , response.data) 
             this.setState({data:response.data[0]})
-
-            
-            // this.props.UserAction("id",response.data.id)
-            // this.props.UserAction("name",response.data.name)
-            // this.props.UserAction("email",response.data.email)
-            // this.props.UserAction("phone",response.data.phone)
-            // this.props.UserAction("address",response.data.address)
-            // this.props.UserAction("isLogin",true)
-            
-            // this.props.UserAction("id",response.data.id)
-            // alert(JSON.stringify(response.data));
-            // this.props.navigation.navigate("Home")
         }).catch((err)=>{
             console.log(err)
         })

@@ -9,7 +9,7 @@ export class MainMenu extends Component {
                 <Text style={styles.title}> Main Menu </Text>
                 <View style={styles.view}>
                     <TouchableOpacity style={styles.item} onPress={()=>{this.props.navigation.navigate('Laporan')}}><Text style={styles.title1}>Laporan</Text></TouchableOpacity>
-                    <TouchableOpacity style={styles.item}><Text style={styles.title1}>History Laporan</Text></TouchableOpacity>
+                    <TouchableOpacity style={styles.item} onPress={()=>{this.props.navigation.navigate('History')}}><Text style={styles.title1}>History Laporan</Text></TouchableOpacity>
                 </View>
                 <View style={styles.view}>
                     <TouchableOpacity style={styles.item}><Text style={styles.title1}>Map Kejadian</Text></TouchableOpacity>
