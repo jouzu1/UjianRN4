@@ -55,7 +55,7 @@ export class Laporan extends Component {
 
 
     handleInputData() {
-        axios.post("http://b6cf50737591.ngrok.io/laporan/add", this.state)
+        axios.post("http://cd3dd7512447.ngrok.io/laporan/add", this.state)
             .then((response) => {
                 alert(JSON.stringify(response.data));
                 // this.props.navigation.navigate("MainMenu")

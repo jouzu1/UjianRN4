@@ -23,7 +23,7 @@ export default function App() {
           {/* <Stack.Screen name="Login" component={Login}/> */}
           <Stack.Screen name="MainMenu" component={MainMenu} options={{ headerShown:false }}/>
           <Stack.Screen name="Laporan" component={Laporan} options={{ headerShown:false }}/>
-          <Stack.Screen name="History" component={History} options={{ headerShown:false }}/>
+          <Stack.Screen name="History" component={History}/>
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
