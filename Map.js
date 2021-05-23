@@ -23,7 +23,8 @@ export class Map extends Component {
     }
 
     componentDidUpdate() {
-        console.log(`data markers` , this.state.markers)
+        console.log(`data markers`, this.state.markers)
+        // this.getLocation();
         // console.log(`ini lat`, this.state.latitude);
         // console.log('ini long', this.state.longitude);
     }
@@ -68,16 +69,36 @@ export class Map extends Component {
         return (
             <ScrollView contentContainerStyle={styles.container}>
                 <MapView
+                    // showsUserLocation
+                    // initialRegion={{
+                    //     latitude: this.state.latitude,
+                    //     longitude: this.state.longitude,
+                    //     latitudeDelta: 10,
+                    //     longitudeDelta: 10
+                    // }}
                     style={styles.map}
                     showsUserLocation={true}
+                    zoomControlEnabled={true}
+                    zoomEnabled={true}
+                    zoomTapEnabled={true}
+                    showsScale={true}
+                    showsBuildings={true}
+                    showsUserLocation={true}
+                    showsCompass={true}
+                    region={{
+                        latitude: this.state.latitude,
+                        longitude: this.state.longitude,
+                        latitudeDelta: 1,
+                        longitudeDelta: 1
+                    }}
                 >
                     <Marker
                         coordinate={{
                             latitude: this.state.latitude,
                             longitude: this.state.longitude,
                         }}
-                        title="Lokasi Anda"
-                        description="Posisi Lokasi Anda"
+                        title="Lokasi Anda Saat Ini"
+                        // description="Posisi Lokasi Anda"
                         draggable
                         pinColor="green"
                     >
@@ -86,9 +107,9 @@ export class Map extends Component {
                         <Marker
                             key={index}
                             // coordinate={marker.latitude}
-                            coordinate={{ latitude : marker.latitude , longitude : marker.longitude }}
-                            // title={marker.title}
-                            // description={marker.description}
+                            coordinate={{ latitude: marker.latitude, longitude: marker.longitude }}
+                            title={marker.kejadian}
+                            description={marker.keterangan}
                         />
                     ))}
                 </MapView>

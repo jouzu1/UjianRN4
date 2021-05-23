@@ -19,9 +19,9 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator >
-          {/* <Stack.Screen name="Home" component={Home} options={{ headerShown:false }}/> */}
-          {/* <Stack.Screen name="Registrasi" component={Registrasi}/> */}
-          {/* <Stack.Screen name="Login" component={Login}/> */}
+          <Stack.Screen name="Home" component={Home} options={{ headerShown:false }}/>
+          <Stack.Screen name="Registrasi" component={Registrasi}/>
+          <Stack.Screen name="Login" component={Login}/>
           <Stack.Screen name="MainMenu" component={MainMenu} options={{ headerShown:false }}/>
           <Stack.Screen name="Laporan" component={Laporan} options={{ headerShown:false }}/>
           <Stack.Screen name="History" component={History}/>

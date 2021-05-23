@@ -13,7 +13,7 @@ export class MainMenu extends Component {
                 </View>
                 <View style={styles.view}>
                     <TouchableOpacity style={styles.item}><Text style={styles.title1} onPress={()=>{this.props.navigation.navigate('Map')}}>Map Kejadian</Text></TouchableOpacity>
-                    <TouchableOpacity style={styles.item}><Text style={styles.title1}>Sign Out</Text></TouchableOpacity>
+                    <TouchableOpacity style={styles.item}><Text style={styles.title1} onPress={()=>{this.props.navigation.replace('Home')}}>Sign Out</Text></TouchableOpacity>
                 </View>
             </SafeAreaView>
         )

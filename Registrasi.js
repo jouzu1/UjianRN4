@@ -23,7 +23,7 @@ export class Registrasi extends Component {
     }
 
     handleInputData(){
-        axios.post("http://0b38a69f548d.ngrok.io/user/add",this.state)
+        axios.post("http://cd3dd7512447.ngrok.io/user/add",this.state)
         .then((response)=>{
             alert(JSON.stringify(response.data));
             this.props.navigation.navigate("Home")

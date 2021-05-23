@@ -139,7 +139,7 @@ class Login extends Component {
     }
 
     handleGetData(){
-        axios.get(`http://b6cf50737591.ngrok.io/user/searchby/${this.state.email}/${this.state.phone}`)
+        axios.get(`http://cd3dd7512447.ngrok.io/user/searchby/${this.state.email}/${this.state.phone}`)
         .then((response)=>{
             console.log('ini getData' , response.data) 
             this.setState({data:response.data[0]})
