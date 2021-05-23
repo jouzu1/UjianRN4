@@ -11,6 +11,7 @@ import Login from './Login'
 import MainMenu from './MainMenu';
 import Laporan from './Laporan';
 import History from './History';
+import Map from './Map';
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -24,6 +25,7 @@ export default function App() {
           <Stack.Screen name="MainMenu" component={MainMenu} options={{ headerShown:false }}/>
           <Stack.Screen name="Laporan" component={Laporan} options={{ headerShown:false }}/>
           <Stack.Screen name="History" component={History}/>
+          <Stack.Screen name="Map" component={Map}/>
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
