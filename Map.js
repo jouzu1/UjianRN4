@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, SafeAreaView, StyleSheet, Image, Button, TextInput, ScrollView, Dimensions } from 'react-native';
+import { Text, View, SafeAreaView, StyleSheet, Image, Button, TextInput, ScrollView, Dimensions, FlatList } from 'react-native';
 import axios from 'axios';
 import MapView from 'react-native-maps';
 import { Marker } from 'react-native-maps';
@@ -11,6 +11,7 @@ export class Map extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            data: [],
             markers: [],
             latitude: 0,
             longitude: 0
@@ -44,10 +45,10 @@ export class Map extends Component {
     };
 
     getData = () => {
-        axios.get(`http://cd3dd7512447.ngrok.io/laporan`)
+        axios.get(`http://1aadaa86d886.ngrok.io/laporan`)
             .then((res) => {
                 // console.log('ini data', res.data)
-                this.setState({ markers: res.data })
+                this.setState({ markers: res.data, data: res.data })
             })
     }
 
@@ -65,9 +66,23 @@ export class Map extends Component {
     onRegionChange(region) {
         this.setState({ region });
     }
+
+    renderItem = ({ item }) => (
+        <View style={styles.item}>
+            <View style={{ flex: 1, justifyContent: "space-between" }}>
+                {item.kejadian === 'pemerkosaan' || item.kejadian === 'perampokan' || item.kejadian === 'pembunuhan' ? <Text>Status : Kriminal</Text> : <Text>Status : Bencana Alam</Text>}
+                <Text>Jam : {item.waktu}</Text>
+                <Text>Alamat : {item.alamat}</Text>
+            </View>
+            <View>
+                <Image source={{ uri: item.foto }} style={{ width: 50, height: 50 }} />
+            </View>
+        </View>
+    );
+
     render() {
         return (
-            <ScrollView contentContainerStyle={styles.container}>
+            <SafeAreaView style={styles.container}>
                 <MapView
                     // showsUserLocation
                     // initialRegion={{
@@ -113,7 +128,14 @@ export class Map extends Component {
                         />
                     ))}
                 </MapView>
-            </ScrollView>
+                <ScrollView style={styles.container}>
+                    <FlatList
+                        data={this.state.data}
+                        renderItem={this.renderItem}
+                        keyExtractor={item => item.id}
+                    />
+                </ScrollView>
+            </SafeAreaView>
         )
     }
 }
@@ -121,7 +143,8 @@ export class Map extends Component {
 const styles = StyleSheet.create({
     map: {
         width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
+        // height: Dimensions.get('window').height,
+        height: 400
     },
     container: {
         flex: 1,
@@ -152,7 +175,15 @@ const styles = StyleSheet.create({
         flex: 1,
         marginTop: 50
         // flexWrap: 'wrap'
-    }
+    },
+    item: {
+        flex: 1, alignSelf: 'flex-start', flexDirection: "row",
+        backgroundColor: '#f9c2ff',
+        padding: 20,
+        marginVertical: 8,
+        marginHorizontal: 16,
+        // flexDirection:'row'
+    },
 });
 
 export default Map
